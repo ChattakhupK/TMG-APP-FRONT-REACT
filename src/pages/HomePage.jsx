@@ -19,9 +19,15 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import { Card, CardContent } from "@/components/ui/card";
-import tmgLogoW from '../../public/tmgLogow.png'
-import tmgLogob from '../../public/tmgLogob.png'
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import tmgLogoW from "../../public/tmgLogow.png";
+import tmgLogob from "../../public/tmgLogob.png";
 
 const HomePage = () => {
   const [data, setData] = useState([]);
@@ -50,6 +56,12 @@ const HomePage = () => {
         <h1 className="text-center uppercase font-bold text-xl">
           การแสดงผลหลัก
         </h1>
+        <Card className="w-[100px] mx-auto my-6">
+          <CardHeader className="text-center">
+            <CardTitle>Radio</CardTitle>
+            <CardDescription>696</CardDescription>
+          </CardHeader>
+        </Card>
         <div className="mx-auto mt-4 max-w-[640px]">
           <Table className={"max-w-[940px] mx-auto"}>
             <TableCaption className={"my-2"}>
