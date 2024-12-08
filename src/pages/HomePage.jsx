@@ -20,7 +20,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 import { Card, CardContent } from "@/components/ui/card";
-import { ModeToggle } from "@/components/mode-toggle";
+import tmgLogoW from '../../public/tmgLogow.png'
+import tmgLogob from '../../public/tmgLogob.png'
 
 const HomePage = () => {
   const [data, setData] = useState([]);
@@ -122,9 +123,9 @@ const HomePage = () => {
                       <CardContent className="flex aspect-square items-center justify-center p-6">
                         <span className="text-2xl font-semibold">
                           {toggleMode === "dark" ? (
-                            <img src="../../public/tmgLogow.png" alt="" />
+                            <img src={tmgLogoW} alt="" />
                           ) : (
-                            <img src="../../public/tmgLogob.png" alt="" />
+                            <img src={tmgLogob} alt="" />
                           )}
                         </span>
                       </CardContent>

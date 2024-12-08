@@ -19,7 +19,8 @@ import {
 } from "@/components/ui/sidebar";
 
 import { useTheme } from "@/components/theme-provider";
-
+import tmgLogoW from '../../public/tmgLogow.png'
+import tmgLogob from '../../public/tmgLogob.png'
 // Menu items.
 const itemsUser = [
   {
@@ -51,9 +52,9 @@ export function AppSidebar({ logoChange }) {
       <SidebarContent className="flex">
         <SidebarGroup>
           {logoChange === "dark" ? (
-            <img src="../../public/tmgLogow.png" alt="" />
+            <img src={tmgLogoW} alt="" />
           ) : (
-            <img src="../../public/tmgLogob.png" alt="" />
+            <img src={tmgLogob} alt="" />
           )}
           <hr className=" my-2" />
           <SidebarGroupLabel>Application Member</SidebarGroupLabel>
