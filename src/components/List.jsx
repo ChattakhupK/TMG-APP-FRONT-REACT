@@ -103,7 +103,7 @@ const List = ({ item, handleGetData, countXvalue }) => {
               <Button
                 variant="secondary"
                 className={"w-[75px]"}
-                onClick={() => handleDel(item.id)}
+                onClick={() => setIsEdit(false)}
               >
                 ยกเลิก
               </Button>
