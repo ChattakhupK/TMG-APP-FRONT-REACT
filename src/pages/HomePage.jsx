@@ -1,4 +1,3 @@
-import List from "@/components/List";
 import { getData } from "@/api/resources";
 import { useState, useEffect } from "react";
 import Autoplay from "embla-carousel-autoplay";
@@ -27,14 +26,22 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import tmgLogoW from "../../public/tmgLogow.png";
-import tmgLogob from "../../public/tmgLogob.png";
+import tmgLogoB from "../../public/tmgLogob.png";
+import { useTheme } from "@/components/theme-provider";
+import ChartData from "@/components/ChartData";
 
 const HomePage = () => {
   const [data, setData] = useState([]);
-  const [toggleMode, setToggleMode] = useState("dark");
+  const { theme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
   useEffect(() => {
     handleGetData();
   }, []);
+
+  useEffect(() => {
+    setIsDarkMode(theme === "dark");
+  }, [theme]);
 
   const handleGetData = async () => {
     await getData()
@@ -63,6 +70,8 @@ const HomePage = () => {
           </CardHeader>
         </Card>
         <div className="mx-auto mt-4 max-w-[640px]">
+          <ChartData data={data} />
+          <hr className="my-6" />
           <Table className={"max-w-[940px] mx-auto"}>
             <TableCaption className={"my-2"}>
               ตารางแสดงผลข้อมูลทั้งหมด พร้อมมูลค่าสินทรัพย์
@@ -78,7 +87,7 @@ const HomePage = () => {
               </TableRow>
             </TableHeader>
             <TableBody>
-              {data.map((item, index) => (
+              {data.map((item) => (
                 <TableRow key={item.id}>
                   <TableCell className="font-medium uppercase">
                     {item.title}
@@ -134,10 +143,18 @@ const HomePage = () => {
                     <Card>
                       <CardContent className="flex aspect-square items-center justify-center p-6">
                         <span className="text-2xl font-semibold">
-                          {toggleMode === "dark" ? (
-                            <img src={tmgLogoW} alt="" />
+                          {isDarkMode ? (
+                            <img
+                              className="select-none pointer-events-none"
+                              src={tmgLogoW}
+                              alt=""
+                            />
                           ) : (
-                            <img src={tmgLogob} alt="" />
+                            <img
+                              className="select-none pointer-events-none"
+                              src={tmgLogoB}
+                              alt=""
+                            />
                           )}
                         </span>
                       </CardContent>

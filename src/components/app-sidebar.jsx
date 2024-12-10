@@ -1,11 +1,4 @@
-import {
-  Calendar,
-  Home,
-  Inbox,
-  ChartNoAxesGantt,
-  PackageSearch,
-  User,
-} from "lucide-react";
+import { Home, ChartNoAxesGantt, PackageSearch, User } from "lucide-react";
 
 import {
   Sidebar,
@@ -19,8 +12,9 @@ import {
 } from "@/components/ui/sidebar";
 
 import { useTheme } from "@/components/theme-provider";
-import tmgLogoW from '../../public/tmgLogow.png'
-import tmgLogob from '../../public/tmgLogob.png'
+import tmgLogoW from "../../public/tmgLogow.png";
+import tmgLogob from "../../public/tmgLogob.png";
+import { useEffect, useState } from "react";
 // Menu items.
 const itemsUser = [
   {
@@ -46,15 +40,30 @@ const itemsAdmin = [
     icon: ChartNoAxesGantt,
   },
 ];
-export function AppSidebar({ logoChange }) {
+export function AppSidebar() {
+  const { theme } = useTheme();
+  const [isDarkMode, setIsDarkMode] = useState(false);
+
+  useEffect(() => {
+    setIsDarkMode(theme === "dark");
+  }, [theme]);
+
   return (
     <Sidebar>
       <SidebarContent className="flex">
         <SidebarGroup>
-          {logoChange === "dark" ? (
-            <img src={tmgLogoW} alt="" />
+          {isDarkMode ? (
+            <img
+              className="select-none pointer-events-none"
+              src={tmgLogoW}
+              alt=""
+            />
           ) : (
-            <img src={tmgLogob} alt="" />
+            <img
+              className="select-none pointer-events-none"
+              src={tmgLogob}
+              alt=""
+            />
           )}
           <hr className=" my-2" />
           <SidebarGroupLabel>Application Member</SidebarGroupLabel>

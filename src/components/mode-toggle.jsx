@@ -8,9 +8,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { useTheme } from "@/components/theme-provider";
-import { useState } from "react";
-
-export function ModeToggle({ setLogoChange }) {
+export function ModeToggle() {
   const { setTheme } = useTheme();
   return (
     <DropdownMenu>
@@ -24,7 +22,6 @@ export function ModeToggle({ setLogoChange }) {
       <DropdownMenuContent align="end">
         <DropdownMenuItem
           onClick={() => {
-            setLogoChange("light");
             setTheme("light");
           }}
         >
@@ -32,8 +29,6 @@ export function ModeToggle({ setLogoChange }) {
         </DropdownMenuItem>
         <DropdownMenuItem
           onClick={() => {
-            setLogoChange("dark");
-
             setTheme("dark");
           }}
         >
