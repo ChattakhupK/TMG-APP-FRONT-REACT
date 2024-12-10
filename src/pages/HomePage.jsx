@@ -63,14 +63,21 @@ const HomePage = () => {
         <h1 className="text-center uppercase font-bold text-xl">
           การแสดงผลหลัก
         </h1>
-        <Card className="w-[100px] mx-auto my-6">
-          <CardHeader className="text-center">
-            <CardTitle>Radio</CardTitle>
-            <CardDescription>696</CardDescription>
-          </CardHeader>
-        </Card>
+
         <div className="mx-auto mt-4 max-w-[640px]">
           <ChartData data={data} />
+          <Card className="mx-auto my-6">
+            <div className="flex justify-center ">
+              <CardHeader className="text-center">
+                <CardTitle>Radio</CardTitle>
+                <CardDescription>696</CardDescription>
+              </CardHeader>
+              <CardHeader className="text-center">
+                <CardTitle>DarkChat</CardTitle>
+                <CardDescription>Tamagod</CardDescription>
+              </CardHeader>
+            </div>
+          </Card>
           <hr className="my-6" />
           <Table className={"max-w-[940px] mx-auto"}>
             <TableCaption className={"my-2"}>

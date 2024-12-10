@@ -47,7 +47,7 @@ const ChartData = ({ data }) => {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer className="h-[200px] w-full" config={chartConfig}>
+        <ChartContainer className="h-[200px] w-full uppercase" config={chartConfig}>
           <BarChart accessibilityLayer data={filerData}>
             <CartesianGrid vertical={false} />
             <XAxis
@@ -55,7 +55,7 @@ const ChartData = ({ data }) => {
               tickLine={false}
               axisLine={false}
               tickMargin={8}
-              tickFormatter={(value) => value}
+              tickFormatter={(value) => value.slice(0, 3)}
             />
             <ChartTooltip
               cursor={true}
